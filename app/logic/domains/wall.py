@@ -1,5 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, UUID4
 
 
 class Wall(BaseModel):
-    posts: list[Post]
+    posts: list[UUID4]

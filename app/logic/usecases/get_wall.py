@@ -1,21 +1,17 @@
 from typing import Protocol
 
-
-class Commiter(Protocol):
-    ...
+from pydantic import UUID4
+from logic.domains import Wall
 
 
 class WallRepository(Protocol):
-    def get(self, user_id: int) -> Wall:
-        ...
-
-    def create(self, user_id: int) -> Wall:
+    async def get(self, user_id: UUID4) -> Wall:
         ...
 
 
 class GetWallUsecase:
-    def __init__(self, session: Commiter, wall_repository: WallRepository):
+    def __init__(self, wall_repository: WallRepository):
         self.wall_repository = wall_repository
 
-    def execute(self, user_id: int) -> Wall:
-        return self.wall_repository.get_wall(user_id)
+    async def __call__(self, user_id: UUID4) -> Wall:
+        return await self.wall_repository.get(user_id)
