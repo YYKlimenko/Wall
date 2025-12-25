@@ -1,8 +1,10 @@
 [project]
-name = "wall"
+name = "Wall"
 version = "0.1.0"
-description = "Add your description here"
+description = "Service to view interesting posts to users."
 requires-python = ">=3.13"
 dependencies = [
+    "mypy>=1.19.1",
     "pydantic>=2.12.5",
+    "ruff>=0.14.10",
 ]
