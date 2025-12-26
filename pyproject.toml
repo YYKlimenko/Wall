@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Service to view interesting posts to users."
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi[standard-no-fastapi-cloud-cli]>=0.127.0",
+    "faststream[kafka]>=0.6.4",
     "mypy>=1.19.1",
     "pydantic>=2.12.5",
     "ruff>=0.14.10",
